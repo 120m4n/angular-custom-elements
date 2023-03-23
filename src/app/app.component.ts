@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MetaData } from './models/metadata';
 
+import { WindowRefService } from './service/window-ref.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,7 +42,11 @@ export class AppComponent {
     }
   };
 
-  constructor() { }
+  constructor(private winRef : WindowRefService) {
+    // gettin the native window object
+    console.log('Native window obj', winRef.nativeWindow);
+
+   }
 
   handleEvents($event: any) {
     this.action.emit($event);
