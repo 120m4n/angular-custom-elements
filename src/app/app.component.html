@@ -1,5 +1,5 @@
-<div class="container">
-    <app-btn-bar 
+<!-- <div class="container"> -->
+    <!-- <app-btn-bar 
         [properties]="firstBtnProperties"
         (action)="handleEvents($event)">
     </app-btn-bar>
@@ -10,6 +10,18 @@
     <app-btn-bar 
         [properties]="thirdBtnProperties"
         (action)="handleEvents($event)">
-    </app-btn-bar>
+    </app-btn-bar> -->
+    
+<!-- </div> -->
+<!-- <app-latlon></app-latlon> -->
+<div class="contenedor">
+    <div class="row">
+       <label for="latitude">lat:</label>
+       <input type="text" [(ngModel)]="lat" placeholder="ej. 7.1219" id="latitude" name="latitude">
+    </div>
+    <div class="row">
+        <label for="longitude">lon:</label>
+        <input type="text" [(ngModel)]="lon" placeholder="ej. -73.1222" id="longitude" name="longitude">
+    </div>
+    <button (click)="handleEvents('fire')">Submit</button>
 </div>
-

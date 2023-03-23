@@ -42,6 +42,9 @@ export class AppComponent {
     }
   };
 
+  lat: string = '0.0';
+  lon: string = '0.0';
+
   constructor(private winRef : WindowRefService) {
     // gettin the native window object
     console.log('Native window obj', winRef.nativeWindow);
@@ -49,6 +52,10 @@ export class AppComponent {
    }
 
   handleEvents($event: any) {
+    console.log('Event from child', {
+      lat : this.lat,
+      lon : this.lon
+    });
     this.action.emit($event);
   }
 }
