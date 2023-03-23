@@ -21,14 +21,14 @@ import { LatlonComponent } from './components/latlon/latlon.component';
     FormsModule
   ],
   providers: [],
-  entryComponents: [AppComponent],
-  // bootstrap: [AppComponent]
+  // entryComponents: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { 
-  constructor(private injector: Injector) { }
+export class AppModule {
+  // constructor(private injector: Injector) { }
 
-  ngDoBootstrap() {
-    const button = createCustomElement(AppComponent, { injector : this.injector });
-    customElements.define('app-button', button);
-  }
+  // ngDoBootstrap() {
+  //   const button = createCustomElement(AppComponent, { injector : this.injector });
+  //   customElements.define('app-button', button);
+  // }
 }

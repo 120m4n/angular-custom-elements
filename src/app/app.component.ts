@@ -44,6 +44,7 @@ export class AppComponent {
 
   lat: string = '0.0';
   lon: string = '0.0';
+  search : string =''; // search string
 
   constructor(private winRef : WindowRefService) {
     // gettin the native window object
