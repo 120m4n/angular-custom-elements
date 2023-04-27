@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { MetaData } from './models/metadata';
+import { Params } from './models/params';
 
 import { WindowRefService } from './service/window-ref.service';
 
@@ -11,6 +12,15 @@ import { WindowRefService } from './service/window-ref.service';
 export class AppComponent {
   title = 'angular-custom-elements';
 
+
+  @Input() params: Params = {
+    id: '1',
+    name: 'name',
+    value: 'value'
+  };
+
+  @Input() callbackFunction?: () => void;
+  
   @Output() action = new EventEmitter<MetaData>();
 
   firstBtnProperties: MetaData = {
@@ -49,14 +59,21 @@ export class AppComponent {
   constructor(private winRef : WindowRefService) {
     // gettin the native window object
     console.log('Native window obj', winRef.nativeWindow);
+    // this.callbackFunction = (args : any) => {
+    //   // callback function code here
+    //   console.log('Callback function not implemented');
+    // };
 
    }
 
   handleEvents($event: any) {
-    console.log('Event from child', {
-      lat : this.lat,
-      lon : this.lon
-    });
+    console.log('Event from child', this.params);
     this.action.emit($event);
+    if (this.callbackFunction) {
+      console.log('Callback function implemented', typeof this.callbackFunction);
+      if (typeof this.callbackFunction === 'string') {
+       this.winRef.nativeWindow[this.callbackFunction](this.params);
+      }
+    }
   }
 }

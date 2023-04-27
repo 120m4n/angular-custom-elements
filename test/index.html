@@ -7,11 +7,34 @@
 <link rel="stylesheet" href="./test/styles.css"></head>
 <script src="./test/custom-button-element.js"></script>
 <body>
-    <app-button ></app-button>
+
+  <script>
+   let params = {
+    label: 'Click me',
+    color: 'red',
+    size: 'large',
+    disabled: false,
+    icon: 'fa fa-search',
+    iconPosition: 'left'
+  };
+
+  function someAction() {
+    console.log('someAction');
+  }
+
+  </script>
+  <script type="text/javascript">
+    var foo = function(param)
+    {
+        param.innerHTML = "Not a button";
+    };
+  </script>
+
+    <app-button params="{'id':'parametros'}" callback-function="someAction()"></app-button>
 <script>
   const button = document.querySelector('app-button');
   button.addEventListener('action', (event) => {
-    console.log('clicked', event?.detail);
+    console.log('local listener clicked', event?.detail);
   });
 </script>
 

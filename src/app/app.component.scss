@@ -67,6 +67,11 @@ select {
   color: #afafaf;
 }
 
+.search > button {
+  padding: 8px 8px;
+  margin-left: 1em;
+}
+
 .search i:last-child,
 .password i:last-child {
   // right: 7.5px;
